@@ -32,7 +32,7 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About Us</a>
+                <a class="nav-link" href="AboutUs.html">About Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.html#required">Required Documents</a>
@@ -60,7 +60,7 @@
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto">
                     <div class="application-form-card">
-                        <form action="https://formsubmit.co/uprising185@gmail.com" method="POST">
+                        <form action="https://formsubmit.co/advsunilshah@gmail.com" method="POST">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -257,9 +257,9 @@
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             thankYouModal.show();
-            form.reset();
-            // Optionally, submit to FormSubmit after a delay:
-            // setTimeout(() => form.submit(), 2000);
+            setTimeout(function() {
+              form.submit();
+            }, 2000); // 2 seconds delay
           });
         }
       });

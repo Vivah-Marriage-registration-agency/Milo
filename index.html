@@ -202,6 +202,46 @@
     </div>
 </div>
 
+<div class="testimonial-slide">
+  <div class="testimonial-content">
+    <div class="testimonial-avatar">
+      <img src="https://ui-avatars.com/api/?name=Rohit+Mehra&background=1a73e8&color=fff" alt="Rohit Mehra">
+    </div>
+    <div class="testimonial-text">
+      <p>"I was amazed by the professionalism and speed of the Vivah team. They made the entire process stress-free for us. Thank you for your support!"</p>
+      <div class="testimonial-author">
+        <h5>Rohit Mehra</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="testimonial-slide">
+  <div class="testimonial-content">
+    <div class="testimonial-avatar">
+      <img src="https://ui-avatars.com/api/?name=Pooja+Desai&background=ff7043&color=fff" alt="Pooja Desai">
+    </div>
+    <div class="testimonial-text">
+      <p>"Vivah handled all our paperwork and guided us at every step. The staff is very friendly and helpful. Highly recommended for marriage registration!"</p>
+      <div class="testimonial-author">
+        <h5>Pooja Desai</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="testimonial-slide">
+  <div class="testimonial-content">
+    <div class="testimonial-avatar">
+      <img src="https://ui-avatars.com/api/?name=Suresh+%26+Kavita&background=43a047&color=fff" alt="Suresh & Kavita">
+    </div>
+    <div class="testimonial-text">
+      <p>"We were worried about the legalities, but Vivah made everything so simple. We got our certificate on time and without any hassle. Thank you!"</p>
+      <div class="testimonial-author">
+        <h5>Suresh & Kavita</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div class="testimonial-slide">
           <div class="testimonial-content">
             <div class="testimonial-avatar">
@@ -209,10 +249,9 @@
 
             </div>
             <div class="testimonial-text">
-              <p>"Very professional and trustworthy team. They guided us through each step of the court marriage process and even helped with documents. We’re grateful for their support."</p>
+              <p>"Very professional and quick service. We were guided at every step and the staff was always available for support. Highly recommend Vivah for marriage registration!"</p>
               <div class="testimonial-author">
-                <h5>Ravi sharma</h5>
-                <span>Business Executive</span>
+                <h5>Deepak Joshi</h5>
               </div>
             </div>
           </div>
@@ -232,6 +271,10 @@
             </div>
           </div>
         </div>
+
+       
+
+        
         
         <div class="testimonial-slide">
           <div class="testimonial-content">
@@ -264,12 +307,8 @@
         </button>
       </div>
       
-      <div class="testimonial-dots" id="testimonialDots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
-        <span class="dot" data-slide="3"></span>
-      </div>
+      <!-- Remove static testimonial dots -->
+        <div class="testimonial-dots" id="testimonialDots"></div>
     </div>
   </div>
 </section>
@@ -306,6 +345,40 @@
                   </div>
               </div>
           </div>
+
+<!-- Marriage Certificate Gallery Section -->
+<section id="certificates" class="certificate-gallery-section py-5" style="background: #f8f1e7;">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="section-title" style="color: #6b0f1a;">Our Happy Clients’ Marriage Certificates</h2>
+        <p class="section-subtitle" style="color: #3f0a10;">A glimpse of the official certificates we’ve helped couples receive</p>
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marg1.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 1">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marg2.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 2">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marg3.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 3">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marg4.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 4">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marge5.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 5">
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <img src="./src/marg6.jpg" class="img-fluid rounded shadow-sm border" alt="Marriage Certificate 6">
+      </div>
+
+    </div>
+  </div>
+</section>
+
           <div class="col-lg-12">
               <div class="card shadow p-4 mb-5">
                   <div class="text-center">
@@ -329,7 +402,6 @@
   </div>
 </section>
 
-<!-- Location Map Section -->
 
 
 <!-- Footer -->
@@ -396,10 +468,19 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".testimonial-slide");
-    const dots = document.querySelectorAll(".dot");
-    const prevBtn = document.getElementById("testimonialPrev");
-    const nextBtn = document.getElementById("testimonialNext");
+    const dotsContainer = document.getElementById("testimonialDots");
     let currentSlide = 0;
+
+    // Dynamically create dots
+    dotsContainer.innerHTML = "";
+    slides.forEach((_, idx) => {
+      const dot = document.createElement("span");
+      dot.className = "dot" + (idx === 0 ? " active" : "");
+      dot.dataset.slide = idx;
+      dot.addEventListener("click", () => showSlide(idx));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = dotsContainer.querySelectorAll(".dot");
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -419,23 +500,15 @@
       showSlide(prevIndex);
     }
 
-    // Dot click
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        showSlide(index);
-      });
-    });
-
     // Button click
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
+    const nextBtn = document.getElementById("testimonialNext");
+    const prevBtn = document.getElementById("testimonialPrev");
+    if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+    if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
-    
     // Optional: Auto-slide every 5 seconds
     // setInterval(nextSlide, 5000);
   });
-  
-  
 </script>
 
 

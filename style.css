@@ -7,6 +7,263 @@ body {
   padding: 0;
 }
 
+.nri-section {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.nri-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="nri-grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%236b0f1a" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="%23d4af37" opacity="0.03"/><circle cx="50" cy="50" r="0.5" fill="%236b0f1a" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23nri-grain)"/></svg>');
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.nri-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.nri-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 40px rgba(107, 15, 26, 0.08);
+  border: 2px solid rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.nri-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-maroon), var(--brand-gold));
+  opacity: 0.9;
+}
+
+.nri-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--brand-maroon), var(--brand-maroon-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 25px rgba(107, 15, 26, 0.2);
+  position: relative;
+}
+
+.nri-icon::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--brand-maroon), var(--brand-gold));
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+.nri-icon i {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.nri-title {
+  color: var(--brand-maroon);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.nri-subtitle {
+  color: #444;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.nri-description {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nri-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background: rgba(248, 241, 231, 0.6);
+  border-radius: 12px;
+  border-left: 3px solid var(--brand-maroon);
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.nri-feature:hover {
+  background: rgba(248, 241, 231, 0.9);
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(107, 15, 26, 0.1);
+}
+
+.nri-feature i {
+  color: var(--brand-maroon);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.nri-feature span {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nri-highlight {
+  background: linear-gradient(135deg, rgba(107, 15, 26, 0.08), rgba(212, 175, 55, 0.08));
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.nri-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-maroon), var(--brand-gold));
+}
+
+.highlight-text {
+  color: var(--brand-maroon);
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-style: italic;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.nri-cta {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.nri-section .btn-primary {
+  background: linear-gradient(135deg, var(--brand-maroon), var(--brand-maroon-dark));
+  border: none;
+  border-radius: 12px;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(107, 15, 26, 0.2);
+  transition: all 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nri-section .btn-primary:hover {
+  background: linear-gradient(135deg, var(--brand-maroon-dark), #2a0509);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(107, 15, 26, 0.3);
+  color: #fff;
+}
+
+/* Mobile Responsive for NRI Section */
+@media (max-width: 768px) {
+  .nri-section {
+    padding: 3rem 0;
+  }
+  
+  .nri-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .nri-title {
+    font-size: 1.6rem;
+  }
+  
+  .nri-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .nri-description {
+    font-size: 1rem;
+  }
+  
+  .nri-feature {
+    padding: 12px 15px;
+    margin-bottom: 6px;
+  }
+  
+  .nri-feature span {
+    font-size: 0.95rem;
+  }
+  
+  .highlight-text {
+    font-size: 1.1rem;
+  }
+  
+  .nri-cta {
+    font-size: 1rem;
+  }
+  
+  .nri-section .btn-primary {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nri-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .nri-icon i {
+    font-size: 1.8rem;
+  }
+  
+  .nri-title {
+    font-size: 1.4rem;
+  }
+  
+  .nri-subtitle {
+    font-size: 1rem;
+  }
+  
+  .nri-feature {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 15px 10px;
+  }
+}
+
 
 .navbar-brand{
     margin-top: -20px;
